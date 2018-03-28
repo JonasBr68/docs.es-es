@@ -256,9 +256,10 @@ El tipo <xref:System.FormattableString> contiene la cadena de formato y los resu
 
 ```csharp
 FormattableString str = $"Average grade is {s.Grades.Average()}";
-var gradeStr = string.Format(null, 
-    System.Globalization.CultureInfo.CreateSpecificCulture("de-de"),
-    str.GetFormat(), str.GetArguments());
+var gradeStr = string.Format(System.Globalization.CultureInfo.CreateSpecificCulture("de-de"),
+    str.Format, str.GetArguments());
+
+var gradeStr2 = str.ToString(System.Globalization.CultureInfo.CreateSpecificCulture("de-de"));
 ```
 
 > [!NOTE]
